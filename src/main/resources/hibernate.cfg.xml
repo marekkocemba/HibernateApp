@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>           <!-- Dialect used for particular database engine in particular version -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>         <!-- Class from Driver-Connector Library (added in Maven) for database driver - with full package path -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_db</property> <!-- connection string - points to place where available database is -->
+<!--        <property name="hibernate.connection.username">company_admin</property>                     &lt;!&ndash; name of user used for database connection (need to have proper privileges &ndash;&gt;-->
+<!--        <property name="hibernate.connection.password">company1234</property>                       &lt;!&ndash; pass for above user &ndash;&gt;-->
+        <property name="hibernate.connection.username">root</property>                     <!-- name of user used for database connection (need to have proper privileges -->
+        <property name="hibernate.connection.password">root</property>
+
+        <property name="hibernate.current_session_context_class">thread</property>                  <!-- scope of Hibernate session context -->
+        <property name="hbm2ddl.auto">update</property>                                        <!--create-drop  WARN quite important setting - for more see presentation page 24 -->
+        <property name="hibernate.show_sql">true</property>                                        <!-- boolean setting - if hibernate should show SQL statements in output window (console by defualt) -->
+        <property name="hibernate.connection.autoReconnect">true</property>                         <!-- boolean setting - if hibernate should try to auto reconnect if connection with database is lost -->
+
+        <!-- chapter 1  -->
+        <mapping class="com.sda.hib.chapter1.crud.model.User" />
+
+        <!-- chapter 2  -->
+        <mapping class="com.sda.hib.chapter2.one.to.many.many.to.one.model.Mom" />
+        <mapping class="com.sda.hib.chapter2.one.to.many.many.to.one.model.Child" />
+
+        <!-- chapter 3  -->
+        <mapping class="com.sda.hib.chapter3.one.to.one.model.Husband" />
+        <mapping class="com.sda.hib.chapter3.one.to.one.model.Wife" />
+
+        <!-- chapter 4  -->
+        <mapping class="com.sda.hib.chapter4.many.to.many.model.Course" />
+        <mapping class="com.sda.hib.chapter4.many.to.many.model.Student" />
+
+        <!-- chapter 5  -->
+        <mapping class="com.sda.hib.chapter5.one.way.relation.model.Boyfriend" />
+        <mapping class="com.sda.hib.chapter5.one.way.relation.model.Girlfriend" />
+
+        <!-- chapter 6  -->
+        <mapping class="com.sda.hib.chapter6.inheritance.mapped.superclass.model.Cat" />
+        <mapping class="com.sda.hib.chapter6.inheritance.mapped.superclass.model.Dog" />
+
+        <mapping class="com.sda.hib.chapter6.inheritance.table.model.Shop" />
+        <mapping class="com.sda.hib.chapter6.inheritance.table.model.InternetShop" />
+        <mapping class="com.sda.hib.chapter6.inheritance.table.model.Supermarket" />
+    </session-factory>
+
+</hibernate-configuration>

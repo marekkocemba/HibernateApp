@@ -1,0 +1,6 @@
+com\sda\hib\model\Region.class
+com\sda\hib\HibernateApp.class
+com\sda\hib\HibernateUtils.class
+com\sda\hib\model\Location.class
+com\sda\hib\HibernateTasks.class
+com\sda\hib\model\Country.class
